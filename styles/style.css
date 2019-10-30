@@ -1,0 +1,680 @@
+/* SETUP CODE */
+
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+
+html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+
+*, *:before, *:after {box-sizing: inherit}
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+
+
+/* BASE STYLES & STRIPPING STYLES */
+
+* {
+    /* border: 1px solid red; */
+}
+
+html {
+    /* SETTING BASE FONT SIZE TO 10PX  */
+    font-size: 62.5%;
+}
+
+body {
+    /* PRIMARY FONT & BACKGROUND COLOUR */
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(255, 255, 255);
+    background: rgb(15, 6, 50);
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+ul,
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+.button-style {
+    /* PRIMARY FONT FOR HEADINGS / BUTTONS */
+    font-family: 'Iceberg', cursive;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 8rem;
+    line-height: 1.0;
+    display: inline-block;
+}
+
+h2 {
+    font-size: 5.2rem;
+}
+
+h3 {
+    font-size: 3.5rem;
+    display: inline-block;
+    background: rgb(146, 0, 255);
+    font-weight: 400;
+    margin-top: 10px;
+    padding: 8px 20px;
+}
+
+img {
+    width: 100%;
+}
+
+a,
+.button-style {
+    text-decoration: none;
+    color: inherit;
+    font-size: 2.0rem;
+    text-transform: uppercase;
+    padding: 8px 20px;
+}
+
+.button-style {
+    background: rgb(146, 0, 255);
+    line-height: 2.9rem;
+}
+
+a:hover,
+a:focus {
+    background: rgb(255, 255, 255);
+    color: rgb(146, 0, 255);
+}
+
+li {
+    list-style: none;
+}
+
+p,
+address a,
+address p,
+address span {
+    font-size: 2.0rem;
+    line-height: 2.9rem;
+    font-weight: 400;
+}
+
+.button-style:hover,
+.button-style:focus {
+    background: rgb(255, 255, 255);
+    color: rgb(15, 6, 50);
+}
+
+.image-wrapper {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+
+    /* This is to keep the images in 
+    section-1 from spilling out on very
+    large monitors. */
+}
+
+/* END BASE STYLES & STRIPPING STYLES */
+
+/* HEADER STYLES */
+
+header {
+    background-image: url(../images/header-image.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 90vh;
+
+    /* Maximum limits expansion on large displays */
+    max-height: 800px;
+}
+
+.position-holder {
+    position: relative;
+}
+
+.navigator {
+    padding: 50px 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.navigator li {
+    display: inline-block;
+}
+
+/*  ^ This styling also applies to the nav in the footer.
+
+---- DESIGN CLARIFICATION ----
+Between the desktop and mobile versions, the navigation bar maintains its initial structure. The only major difference I could glean was font size. That said, I found that implementing it by means of inline-block instead of a float resulted in a more symmetrical and stable transition across various screen sizes.
+
+Happy Halloween,
+Lewis.
+*/
+
+.burger-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    padding: 20px;
+}
+
+.burger-menu a {
+    display: block;
+}
+
+.burger-menu i {
+    font-size: 5.0rem;
+}
+
+.logo-box {
+    width: 40%;
+    text-align: center;
+    position: absolute;
+    left: calc(60% / 2);
+    margin-top: 80px;
+}
+
+.social-media-links {
+    position: absolute;
+    right: 0;
+    margin-top: 150px;
+}
+
+.social-media-links li {
+    text-align: center;
+}
+
+.social-media-links a {
+    padding: 10px 14px;
+    display: block;
+}
+
+.social-media-links i {
+    font-size: 2.8rem;
+    padding: 0;
+}
+
+/* END HEADER STYLES */
+
+/* section-1 STYLES */
+
+.text-box-1,
+.image-box-1 {
+    width: 50%;
+    float: right;
+}
+
+.text-box-2,
+.image-box-2 {
+    width: 50%;
+    float: left;
+}
+
+.text-box {
+    padding-top: 120px;
+}
+
+.text-box p {
+    margin-bottom: 25px;
+}
+
+.text-box-1 .text-box {
+    padding-right: 40px;
+}
+
+.text-box-2 .text-box {
+    padding-left: 40px;
+}
+
+.image-box-2 {
+    clear: both;
+}
+
+/* END section-1 STYLES */
+
+/* section-2 STYLES */
+
+.section-2 {
+    padding: 100px 0;
+    background: rgb(8, 8, 11);
+}
+
+.section-2 .text-box {
+    width: 50%;
+    float: left;
+}
+
+.section-2 .image-box {
+    width: 250px;
+    float: left;
+}
+
+.section-2 .text-box {
+    padding: 0 0 0 40px;
+    width: calc(100% - 250px);
+}
+
+.section-2 h2 {
+    margin-bottom: 10px;
+}
+
+/* END section-2 STYLES */
+
+/* section-3 STYLES */
+
+.section-3 {
+    padding: 120px 0;
+    background: rgb(61, 3, 105);
+}
+
+.quick-link-container {
+    text-align: center;
+}
+
+.quick-link {
+    display: inline-block;
+    padding: 20px 50px;
+}
+
+.quick-link i,
+.quick-link p {
+    display: block;
+}
+
+.quick-link i {
+    font-size: 5rem; 
+    margin-bottom: 20px; 
+}
+
+.quick-link p {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.quick-link a:hover,
+.quick-link a:focus {
+    color: rgb(238, 238, 238);
+    text-shadow: rgb(144, 125, 161) 2px 2px 7px;
+    background: none;
+}
+
+/* END section-3 STYLES */
+
+
+/* section-4 STYLES */
+
+.section-4 {
+    padding: 100px 0;
+}
+
+.section-4 h2 {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.section-4 li:nth-of-type(2) {
+    margin: 0 40px;
+}
+
+.section-4 li {
+    float: left;
+    width: calc((100% - 80px) / 3);
+}
+
+/* END section-4 STYLES */
+
+/* FOOTER STYLES */
+
+footer {
+    background: rgb(61, 3, 105);
+}
+
+address,
+.contact-container {
+    width: 50%;
+    float: left;
+}
+
+address {
+    font-style: normal;
+    padding-bottom: 30px;
+}
+
+address a {
+    display: inline-block;
+    padding: 10px 0 0 0;
+    text-transform: lowercase;
+}
+
+input[type=text] {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    width: calc(100% - 140px);
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    padding: 8px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+.copyright-container {
+    margin-top: 80px;
+    padding: 8px 0;
+    background: rgb(15, 6, 50);
+}
+
+.copyright-container p {
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* END FOOTER STYLES */
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1214px) {
+
+    .logo-box {
+        width: 50%;
+        left: 25%;
+    }
+
+    h2 {
+        font-size: 4.4rem;
+    }
+
+    p,
+    address a,
+    address p,
+    address span {
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+    }
+
+    .text-box {
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .wrapper {
+        max-width: 1100px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .text-box-1 .text-box {
+        padding-right: 0;
+    }
+
+    .section-2,
+    .section-3,
+    .section-4 {
+        padding: 50px 0;
+    }
+
+    .section-4 h2 {
+        margin-bottom: 60px;
+    }
+
+}
+
+@media (max-width: 975px) {
+
+    .wrapper {
+        max-width: 975px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 7.0rem;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+    }
+
+    h3 {
+        font-size: 2.8rem;
+    }
+    
+    p,
+    address a,
+    address p,
+    address span {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+    }
+
+    .text-box {
+        padding-top: 20;
+    }
+
+    .quick-link i {
+        font-size: 3.8rem;
+        margin-bottom: 15px;
+    }
+
+    .quick-link p {
+        font-size: 2.4rem;
+    }
+
+    address {
+        width: 40%;
+    }
+
+    .contact-container {
+        width: 60%;
+    }
+}
+
+@media (max-width: 856px) {
+
+    .wrapper {
+        max-width: 856px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    header .social-media-links {
+        display: none;
+    }
+
+    .logo-box {
+        width: 75%;
+        left: 12.5%;
+    }
+
+    h1 {
+        font-size: 8rem;
+        line-height: 1.0;
+        display: inline-block;
+    }
+
+    h2 {
+        font-size: 3.0rem;
+    }
+
+    h3 {
+        font-size: 3.5rem;
+    }
+
+    .text-box-1 .text-box,
+    .text-box-2 .text-box {
+        padding: 60px 20px;
+    }
+
+    .section-1 .text-box p {
+        padding: 0;
+    }
+
+    .image-box-1,
+    .image-box-2,
+    .text-box-1,
+    .text-box-2  {
+        width: 100%;
+    }
+
+    .quick-link {
+        padding: 50px 20px;
+    }
+
+    address,
+    .contact-container {
+        width: 100%;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 748px) {
+
+    .wrapper {
+        max-width: 748px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .desktopNav {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .logo-box {
+        margin-top: 250px;
+        width: 70%;
+        left: 15%;
+    }
+
+    h1 {
+        font-size: 7rem;
+        line-height: 1.0;
+    }
+
+    h3 {
+        font-size: 2.2rem;
+    }
+
+    .section-1 .text-box {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .section-2 .image-box {
+        width: 90%;
+        max-width: 748px;
+        padding-bottom: 30px;
+        margin-left: 5%;
+    }
+
+    .section-2 .text-box {
+        width: 100%;
+    }
+
+    .quick-link {
+        padding: 0;
+    }
+
+    .quick-link:nth-of-type(2) {
+        padding: 0 30px;
+    }
+
+    .quick-link i {
+        font-size: 3.0rem;
+        margin-bottom: 10px;
+    }
+
+    .quick-link p {
+        font-size: 2.2rem;
+    }
+
+    .section-4 h2 {
+        margin-bottom: 30px;
+    }
+
+    .footerNav a {
+        padding: 8px 10px;
+    }
+
+    p,
+    a,
+    address a,
+    address p,
+    address span {
+        font-size: 2.0rem;
+        line-height: 2.9rem;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .logo-box {
+        left: 0
+    }   
+
+    .quick-link,
+    .logo-box {
+        width: 100%;
+    }
+    
+    .quick-link i {
+        font-size: 5rem; 
+        margin-bottom: 20px; 
+    }
+
+    .quick-link p {
+        font-size: 3rem;
+        font-weight: 700;
+    }
+
+    .ghost {
+        display: none;
+    }
+
+    .section-4 li {
+        margin: 10px;
+        width: calc(50% - 20px);
+    }
+
+    .navigator li a {
+        padding: 8px 5px;
+        font-size: 1.6rem;
+    }
+
+    input[type=text] {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    label {
+        display: block;
+    }
+}
+
+
